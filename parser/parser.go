@@ -8,7 +8,7 @@ import (
 func Urls(html string, host string) []string {
 	host = strings.TrimSuffix(host, "/")
 
-	reg, _ := regexp.Compile(`(?i)\s+href\=(?:['"]{1})?([^'"\s<]+)`)
+	reg, _ := regexp.Compile(`(?i)\s+href\=(?:"|')?([^'"\s<]+)`)
 	matches := reg.FindAllStringSubmatch(html, -1)
 	if matches == nil {
 		return make([]string, 0)
